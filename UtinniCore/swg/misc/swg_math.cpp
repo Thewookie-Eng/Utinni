@@ -24,7 +24,7 @@
 
 #include "swg_math.h"
 
-static constexpr float pi = 3.14159265358979323846;
+static constexpr float pi = 3.14159265358979323846f;
 
 namespace swg::math
 {

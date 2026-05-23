@@ -23,7 +23,7 @@
 **/
 
 #include "game.h"
-#include "utinni.h";
+#include "utinni.h"
 #include <imgui/imgui_user.h>
 #include "swg/client/client.h"
 #include "swg/misc/config.h"

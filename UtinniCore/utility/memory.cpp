@@ -116,11 +116,11 @@ void createJMP(swgptr address, swgptr jumpToAddress, size_t overrideLength)
 	 DWORD newProtect;
 
     VirtualProtect((LPVOID)address, overrideLength, PAGE_EXECUTE_READWRITE, &oldProtect);
-	 write<char>(address, 0xE9); // 0xE9 = JMP
-	 write<swgptr>(address + 0x1, (jumpToAddress - address) - 5); 
+	 write<uint8_t>(address, 0xE9); // 0xE9 = JMP
+	 write<swgptr>(address + 0x1, (jumpToAddress - address) - 5);
 	 for (swgptr i = 0x5; i < overrideLength; i++)
 	 {
-		  write<char>(address + i, 0x90); // 0x90 = NOP
+		  write<uint8_t>(address + i, 0x90); // 0x90 = NOP
 	 }
 	 VirtualProtect((LPVOID)address, overrideLength, oldProtect, &newProtect);
 }
