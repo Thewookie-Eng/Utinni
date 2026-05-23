@@ -48,8 +48,10 @@ namespace UtinniCoreDotNetGen
                 driver.ParserOptions.AddDefines("SPDLOG_NO_EXCEPTIONS");
                 driver.ParserOptions.AddDefines("FMT_EXCEPTIONS=0");
 
-                // CppSharp bundles Clang 19; MSVC STL 14.41+ requires Clang 20.
-                // This suppresses the static_assert version check so parsing succeeds.
+                // CppSharp's bundled libclang is 11 (see external/CppSharp/lib/lib/clang/11.0.0/).
+                // The MSVC STL static-asserts Clang >= 20; this define suppresses that check.
+                // NOTE: insufficient on VS 18 (MSVC 14.51+) -- the STL also uses
+                // __builtin_verbose_trap, a Clang 16+ intrinsic that Clang 11 doesn't know.
                 driver.ParserOptions.AddDefines("_ALLOW_COMPILER_AND_STL_VERSION_MISMATCH");
 
                 var options = driver.Options;
