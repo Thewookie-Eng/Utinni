@@ -37,7 +37,7 @@ class Appearance;
 class Object;
 class ClientObject;
 struct Controller;
-struct CellProperty;
+class CellProperty;
 struct ConstCharCrcString;
 
 class UTINNI_API ObjectTemplate : DataResource
