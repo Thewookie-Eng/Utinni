@@ -48,6 +48,10 @@ namespace UtinniCoreDotNetGen
                 driver.ParserOptions.AddDefines("SPDLOG_NO_EXCEPTIONS");
                 driver.ParserOptions.AddDefines("FMT_EXCEPTIONS=0");
 
+                // CppSharp bundles Clang 19; MSVC STL 14.41+ requires Clang 20.
+                // This suppresses the static_assert version check so parsing succeeds.
+                driver.ParserOptions.AddDefines("_ALLOW_COMPILER_AND_STL_VERSION_MISMATCH");
+
                 var options = driver.Options;
                 options.GeneratorKind = GeneratorKind.CSharp;
                 options.OutputDir = slnDir + "UtinniCoreDotNet\\Generated\\";
