@@ -32,11 +32,11 @@ using pCtor2 = utinni::CommandParser*(__thiscall*)(utinni::CommandParser* pThis,
 using pCreateDelegateCommands = void(__thiscall*)(utinni::CommandParser* pThis, const utinni::CommandParser::CommandData commands[]);
 using pAddSubCommand = utinni::CommandParser* (__thiscall*)(utinni::CommandParser* pThis, utinni::CommandParser* subCommand);
 
-pCtor1 ctor1 = (pCtor1)0x00A83EF0;
-pCtor2 ctor2 = (pCtor2)0x00A84130;
+pCtor1 ctor1 = (pCtor1)addresses::swg::commandParser::ctor1;
+pCtor2 ctor2 = (pCtor2)addresses::swg::commandParser::ctor2;
 
-pCreateDelegateCommands createDelegateCommands = (pCreateDelegateCommands)0x00A862F0;
-pAddSubCommand addSubCommand = (pAddSubCommand)0x00A85CD0;
+pCreateDelegateCommands createDelegateCommands = (pCreateDelegateCommands)addresses::swg::commandParser::createDelegateCommands;
+pAddSubCommand addSubCommand = (pAddSubCommand)addresses::swg::commandParser::addSubCommand;
 }
 
 namespace utinni

@@ -28,7 +28,7 @@ namespace swg::uiTable
 {
 using pCtor = utinni::UITable* (__thiscall*)(utinni::UITable* pThis);
 
-pCtor ctor = (pCtor)0x0113E510;
+pCtor ctor = (pCtor)addresses::swg::uiTable::ctor;
 }
 
 namespace utinni

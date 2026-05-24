@@ -29,8 +29,8 @@ namespace swg::uiTextbox
 using pCtor = utinni::UITextbox* (__thiscall*)(utinni::UITextbox* pThis);
 using pSetLocalText = void(__thiscall*)(utinni::UITextbox* pThis, const swg::WString& text);
 
-pCtor ctor = (pCtor)0x0112CFC0;
-pSetLocalText setLocalText = (pSetLocalText)0x01120250;
+pCtor ctor = (pCtor)addresses::swg::uiTextbox::ctor;
+pSetLocalText setLocalText = (pSetLocalText)addresses::swg::uiTextbox::setLocalText;
 }
 
 namespace utinni

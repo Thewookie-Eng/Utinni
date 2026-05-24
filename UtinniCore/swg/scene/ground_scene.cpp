@@ -48,17 +48,17 @@ using pHandleInputMapEvent = void(__thiscall*)(utinni::GroundScene* pThis, utinn
 
 using pInit = void(__thiscall*)(utinni::GroundScene* pThis, const char* terrain, utinni::Object* playerObj, float time);
 
-pCtor ctor = (pCtor)0x00519830; // Offline scene ctor
-pReloadTerrain reloadTerrain = (pReloadTerrain)0x0051A4F0;
-pChangeCamera changeCamera = (pChangeCamera)0x0051A350;
-pGetCurrentCamera getCurrentCamera = (pGetCurrentCamera)0x0051A4D0;
+pCtor ctor = (pCtor)addresses::swg::groundScene::ctor;
+pReloadTerrain reloadTerrain = (pReloadTerrain)addresses::swg::groundScene::reloadTerrain;
+pChangeCamera changeCamera = (pChangeCamera)addresses::swg::groundScene::changeCamera;
+pGetCurrentCamera getCurrentCamera = (pGetCurrentCamera)addresses::swg::groundScene::getCurrentCamera;
 
-pDraw draw = (pDraw)0x0051B770;
-pUpdate update = (pUpdate)0x0051AF10;
-pHandleInputMapUpdate handleInputMapUpdate = (pHandleInputMapUpdate)0x0051AB20;
-pHandleInputMapEvent handleInputMapEvent = (pHandleInputMapEvent)0x0051AA40;
+pDraw draw = (pDraw)addresses::swg::groundScene::draw;
+pUpdate update = (pUpdate)addresses::swg::groundScene::update;
+pHandleInputMapUpdate handleInputMapUpdate = (pHandleInputMapUpdate)addresses::swg::groundScene::handleInputMapUpdate;
+pHandleInputMapEvent handleInputMapEvent = (pHandleInputMapEvent)addresses::swg::groundScene::handleInputMapEvent;
 
-pInit init = (pInit)0x00518EB0;
+pInit init = (pInit)addresses::swg::groundScene::init;
 }
 
 static std::vector<void(*)(utinni::GroundScene* pThis)> preDrawLoopCallbacks;

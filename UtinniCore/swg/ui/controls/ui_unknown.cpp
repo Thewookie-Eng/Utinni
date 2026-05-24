@@ -28,7 +28,7 @@ namespace swg::uiUnknown
 {
 using pCtor = utinni::UIUnknown* (__thiscall*)(utinni::UIUnknown* pThis);
 
-pCtor ctor = (pCtor)0x01167510;
+pCtor ctor = (pCtor)addresses::swg::uiUnknown::ctor;
 }
 
 namespace utinni

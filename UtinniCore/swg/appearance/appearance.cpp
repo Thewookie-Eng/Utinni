@@ -31,8 +31,8 @@ namespace swg::appearance
 using pCreateAppearance = utinni::Appearance* (__cdecl*)(const char* filename);
 using pCollide = bool (__stdcall*)(swg::math::Vector* worldStart, swg::math::Vector* worldEnd, swgptr unk, utinni::CollisionInfo& collisionResults);
 
-pCreateAppearance createAppearance = (pCreateAppearance)0x00B262A0;
-pCollide collide = (pCollide)0x00B2C410;
+pCreateAppearance createAppearance = (pCreateAppearance)addresses::swg::appearance::createAppearance;
+pCollide collide = (pCollide)addresses::swg::appearance::collide;
 }
 
 namespace swg::particleEffectAppearance
@@ -40,8 +40,8 @@ namespace swg::particleEffectAppearance
 using pCtor = swgptr(__thiscall*)(utinni::ParticleEffectAppearance* pThis, swgptr particleEffectAppearanceTemplate);
 using pRender = void(__thiscall*)(utinni::ParticleEffectAppearance* pThis);
 
-pCtor ctor = (pCtor)0x007A85A0;
-pRender render = (pRender)0x007A8A50;
+pCtor ctor = (pCtor)addresses::swg::particleEffectAppearance::ctor;
+pRender render = (pRender)addresses::swg::particleEffectAppearance::render;
 }
 
 namespace utinni

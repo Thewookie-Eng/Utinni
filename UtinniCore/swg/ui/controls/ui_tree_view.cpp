@@ -28,7 +28,7 @@ namespace swg::uiTreeView
 {
 using pCtor = utinni::UITreeView* (__thiscall*)(utinni::UITreeView* pThis);
 
-pCtor ctor = (pCtor)0x011549C0;
+pCtor ctor = (pCtor)addresses::swg::uiTreeView::ctor;
 }
 
 namespace utinni

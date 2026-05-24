@@ -40,18 +40,18 @@ using pSetHorizontalFieldOfView = void(__thiscall*)(utinni::Camera* pThis, float
 using pReverseProjectInViewportSpaceInt = swg::math::Vector*(__thiscall*)(utinni::Camera* pThis, math::Vector& result, int x, int y);
 using pReverseProjectInViewportSpaceFloat = swg::math::Vector*(__thiscall*)(utinni::Camera* pThis, math::Vector& result, float viewPortX, float viewPortY, float cameraZ);
 
-pGetViewportInt getViewportInt = (pGetViewportInt)0x00767DF0;
-pGetViewportFloat getViewportFloat = (pGetViewportFloat)0x00767E40;
+pGetViewportInt getViewportInt = (pGetViewportInt)addresses::swg::camera::getViewportInt;
+pGetViewportFloat getViewportFloat = (pGetViewportFloat)addresses::swg::camera::getViewportFloat;
 pGetViewportFloat getViewportFloatDetour;
-pSetViewport setViewport = (pSetViewport)0x00767E90;
+pSetViewport setViewport = (pSetViewport)addresses::swg::camera::setViewport;
 
-pSetNearPlane setNearPlane = (pSetNearPlane)0x00767EC0;
-pSetFarPlane setFarPlane = (pSetFarPlane)0x00767EE0;
+pSetNearPlane setNearPlane = (pSetNearPlane)addresses::swg::camera::setNearPlane;
+pSetFarPlane setFarPlane = (pSetFarPlane)addresses::swg::camera::setFarPlane;
 
-pSetHorizontalFieldOfView setHorizontalFieldOfView = (pSetHorizontalFieldOfView)0x00767F00;
+pSetHorizontalFieldOfView setHorizontalFieldOfView = (pSetHorizontalFieldOfView)addresses::swg::camera::setHorizontalFieldOfView;
 
-pReverseProjectInViewportSpaceInt reverseProjectInViewportSpaceInt = (pReverseProjectInViewportSpaceInt)0x007682B0;
-pReverseProjectInViewportSpaceFloat reverseProjectInViewportSpaceFloat = (pReverseProjectInViewportSpaceFloat)0x00768390;
+pReverseProjectInViewportSpaceInt reverseProjectInViewportSpaceInt = (pReverseProjectInViewportSpaceInt)addresses::swg::camera::reverseProjectInViewportSpaceInt;
+pReverseProjectInViewportSpaceFloat reverseProjectInViewportSpaceFloat = (pReverseProjectInViewportSpaceFloat)addresses::swg::camera::reverseProjectInViewportSpaceFloat;
 }
 
 namespace swg::renderWorldCamera
@@ -59,15 +59,15 @@ namespace swg::renderWorldCamera
 using pAddExcludedObject = int(__thiscall*)(const utinni::Camera* pThis, utinni::Object* obj);
 using pClearExcludedObjects = int(__thiscall*)(const utinni::Camera* pThis);
 
-pAddExcludedObject addExcludedObject = (pAddExcludedObject)0x00778FE0;
-pClearExcludedObjects clearExcludedObjects = (pClearExcludedObjects)0x00779130;
+pAddExcludedObject addExcludedObject = (pAddExcludedObject)addresses::swg::renderWorldCamera::addExcludedObject;
+pClearExcludedObjects clearExcludedObjects = (pClearExcludedObjects)addresses::swg::renderWorldCamera::clearExcludedObjects;
 }
 
 namespace swg::gameCamera
 {
 using pAlter = float(__thiscall*)(utinni::GameCamera* pThis, float time);
 
-pAlter alter = (pAlter)0x00788740;
+pAlter alter = (pAlter)addresses::swg::gameCamera::alter;
 }
 
 namespace utinni

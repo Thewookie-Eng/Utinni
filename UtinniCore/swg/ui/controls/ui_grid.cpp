@@ -28,7 +28,7 @@ namespace swg::uiGrid
 {
 using pCtor = utinni::UIGrid* (__thiscall*)(utinni::UIGrid* pThis);
 
-pCtor ctor = (pCtor)0x0117B990;
+pCtor ctor = (pCtor)addresses::swg::uiGrid::ctor;
 }
 
 namespace utinni

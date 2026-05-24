@@ -28,7 +28,7 @@ namespace swg::uiPie
 {
 using pCtor = utinni::UIPie* (__thiscall*)(utinni::UIPie* pThis);
 
-pCtor ctor = (pCtor)0x01134080;
+pCtor ctor = (pCtor)addresses::swg::uiPie::ctor;
 }
 
 namespace utinni

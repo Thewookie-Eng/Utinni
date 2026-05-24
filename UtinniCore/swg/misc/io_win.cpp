@@ -28,7 +28,7 @@ namespace swg::ioWin
 {
 using pDraw = void(__thiscall*)(utinni::IoWin* pThis);
 
-pDraw draw = (pDraw)0x00AB58E0;
+pDraw draw = (pDraw)addresses::swg::ioWin::draw;
 }
 
 namespace swg::messageQueue
@@ -38,10 +38,10 @@ using pGetMessage = void(__thiscall*)(utinni::MessageQueue* pThis, int index, in
 using pAppendMessage = void(__thiscall*)(utinni::MessageQueue* pThis, int msg, float value, uint32_t* flags);
 using pAppendMessageData = void(__thiscall*)(utinni::MessageQueue* pThis, int msg, float value, swgptr data, uint32_t* flags);
 
-pGetCount getCount = (pGetCount)0x00AA6660;
-pGetMessage getMessage = (pGetMessage)0x00AA63B0;
-pAppendMessage appendMessage = (pAppendMessage)0x00AA6640;
-pAppendMessageData appendMessageData = (pAppendMessageData)0x00AA6480;
+pGetCount getCount = (pGetCount)addresses::swg::messageQueue::getCount;
+pGetMessage getMessage = (pGetMessage)addresses::swg::messageQueue::getMessage;
+pAppendMessage appendMessage = (pAppendMessage)addresses::swg::messageQueue::appendMessage;
+pAppendMessageData appendMessageData = (pAppendMessageData)addresses::swg::messageQueue::appendMessageData;
 }
 
 namespace utinni

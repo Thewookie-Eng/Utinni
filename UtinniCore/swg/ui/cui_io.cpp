@@ -33,10 +33,10 @@ using pRequestKeyboard = swgptr(__thiscall*)(swgptr pThis, bool value);
 using pDraw = void(__thiscall*)(swgptr pThis);
 
 
-pProcessEvent processEvent = (pProcessEvent)0x093BD50;
-pSetKeyboardInputActive setKeyboardInputActive = (pSetKeyboardInputActive)0x0093D490;
-pRequestKeyboard requestKeyboard = (pRequestKeyboard)0x0093D560;
-pDraw draw = (pDraw)0x0093B2B0;
+pProcessEvent processEvent = (pProcessEvent)addresses::swg::cuiIo::processEvent;
+pSetKeyboardInputActive setKeyboardInputActive = (pSetKeyboardInputActive)addresses::swg::cuiIo::setKeyboardInputActive;
+pRequestKeyboard requestKeyboard = (pRequestKeyboard)addresses::swg::cuiIo::requestKeyboard;
+pDraw draw = (pDraw)addresses::swg::cuiIo::draw;
 
 }
 

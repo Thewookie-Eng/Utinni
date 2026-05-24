@@ -30,7 +30,7 @@ namespace swg::creatureObject
 {
 using pSetTarget = void(__thiscall*)(swgptr pThis, const int64_t& id);
 
-pSetTarget setTarget = (pSetTarget)0x00434AB0;
+pSetTarget setTarget = (pSetTarget)addresses::swg::creatureObject::setTarget;
 }
 
 static std::vector<void(*)(utinni::Object* target)> onTargetCallbacks;

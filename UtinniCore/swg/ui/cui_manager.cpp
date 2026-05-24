@@ -36,20 +36,20 @@ using pTogglePointer = void(__cdecl*)(bool isOn);
 
 using pRestartMusic = void(__cdecl*)(bool notPlaying);
 
-pRender render = (pRender)0x00881210;
-pFindObjectUnderCursor findObjectUnderCursor = (pFindObjectUnderCursor)0x00BD3E20;
+pRender render = (pRender)addresses::swg::cuiManager::render;
+pFindObjectUnderCursor findObjectUnderCursor = (pFindObjectUnderCursor)addresses::swg::cuiManager::findObjectUnderCursor;
 
-pSetSize setSize = (pSetSize)0x00882410;
-pTogglePointer togglePointer = (pTogglePointer)0x00881940;
+pSetSize setSize = (pSetSize)addresses::swg::cuiManager::setSize;
+pTogglePointer togglePointer = (pTogglePointer)addresses::swg::cuiManager::togglePointer;
 
-pRestartMusic restartMusic = (pRestartMusic)0x00881560;
+pRestartMusic restartMusic = (pRestartMusic)addresses::swg::cuiManager::restartMusic;
 }
 
 namespace swg::uiManager
 {
 using pDrawCursor = void(__thiscall*)(utinni::UiManager* pThis, bool value);
 
-pDrawCursor drawCursor = (pDrawCursor)0x010E8410;
+pDrawCursor drawCursor = (pDrawCursor)addresses::swg::uiManager::drawCursor;
 
 }
 
@@ -58,8 +58,8 @@ namespace swg::systemMessageManager
 using pReceiveMessage = void(__cdecl*)(swgptr pChatSystemMsg);
 using pSendMessage = void(__cdecl*)(const swg::WString& message, bool chatOnly);
 
-pReceiveMessage receiveMessage = (pReceiveMessage)0x008ABEB0;
-pSendMessage sendMessage = (pSendMessage)0x008AC250;
+pReceiveMessage receiveMessage = (pReceiveMessage)addresses::swg::systemMessageManager::receiveMessage;
+pSendMessage sendMessage = (pSendMessage)addresses::swg::systemMessageManager::sendMessage;
 
 }
 

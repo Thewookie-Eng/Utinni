@@ -29,8 +29,8 @@ namespace swg::utility
 using pCalculateCrc = unsigned int(__cdecl*)(const char* str);
 using pTreeFileOpen = swgptr(__cdecl*)(const char* filename, int priorityType, bool allowFail);
 
-pCalculateCrc calculateCrc = (pCalculateCrc)0x00AA4790;
-pTreeFileOpen treeFileOpen = (pTreeFileOpen)0x00A931E0;
+pCalculateCrc calculateCrc = (pCalculateCrc)addresses::swg::utility::calculateCrc;
+pTreeFileOpen treeFileOpen = (pTreeFileOpen)addresses::swg::utility::treeFileOpen;
 
 }
 

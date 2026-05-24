@@ -29,7 +29,7 @@ namespace swg::treefile
 {
 using pSearchTree = swgptr(__thiscall*)(swgptr pThis, int priority, const char* treeFilename);
 
-pSearchTree searchTree = (pSearchTree)0xA992E0;
+pSearchTree searchTree = (pSearchTree)addresses::swg::treefile::searchTree;
 }
 
 namespace utinni::treefile

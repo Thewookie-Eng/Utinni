@@ -30,9 +30,9 @@ using pCollide = bool(__cdecl*)(utinni::CellProperty* cell, swg::math::Vector* w
 using pInternalCollide = bool(__cdecl*)(uint16_t collisionFlags, utinni::CellProperty* cell, swg::math::Vector* worldStart, swg::math::Vector* worldEnd, utinni::Object* excludeObject, swgptr unk, swgptr collisionResults);
 using pInternalCollideFindAllObjects = bool(__cdecl*)(uint16_t collisionFlags, int objectList, swg::math::Vector* worldStart, swg::math::Vector* worldEnd, utinni::Object* excludeObject, swgptr unk, swgptr collisionResults);
 
-pCollide collide = (pCollide)0x00561350;
-pInternalCollide internalCollide = (pInternalCollide)0x00562940;
-pInternalCollideFindAllObjects internalCollideFindAllObjects = (pInternalCollideFindAllObjects)0x00562680;
+pCollide collide = (pCollide)addresses::swg::clientWorld::collide;
+pInternalCollide internalCollide = (pInternalCollide)addresses::swg::clientWorld::internalCollide;
+pInternalCollideFindAllObjects internalCollideFindAllObjects = (pInternalCollideFindAllObjects)addresses::swg::clientWorld::internalCollideFindAllObjects;
 }
 
 namespace utinni::clientWorld

@@ -32,7 +32,7 @@ namespace swg::debugCamera
 {
 using pAlter = float(__thiscall*)(utinni::GameCamera* pThis, float time);
 
-pAlter alter = (pAlter)0x006DA1B0;
+pAlter alter = (pAlter)addresses::swg::debugCamera::alter;
 }
 
 static const swg::math::Vector dirX(1, 0, 0);

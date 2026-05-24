@@ -30,15 +30,15 @@ using pGetCrc = int(__thiscall*)(utinni::PortalPropertyTemplate* pThis);
 using pGetCellCount = int(__thiscall*)(utinni::PortalPropertyTemplate* pThis);
 using pGetExteriorAppearanceName = const char* (__thiscall*)(utinni::PortalPropertyTemplate* pThis);
 
-pGetCrc getCrc = (pGetCrc)0x00B47BD0;
-pGetCellCount getCellCount = (pGetCellCount)0x00B47BE0;
-pGetExteriorAppearanceName getExteriorAppearanceName = (pGetExteriorAppearanceName)0x00B47C90;
+pGetCrc getCrc = (pGetCrc)addresses::swg::portalPropertyTemplate::getCrc;
+pGetCellCount getCellCount = (pGetCellCount)addresses::swg::portalPropertyTemplate::getCellCount;
+pGetExteriorAppearanceName getExteriorAppearanceName = (pGetExteriorAppearanceName)addresses::swg::portalPropertyTemplate::getExteriorAppearanceName;
 }
 
 namespace swg::portalPropertyTemplateList
 {
 using pGetPobByCrcString = utinni::PortalPropertyTemplate* (__cdecl*)(utinni::PersistentCrcString* pobCrcString);
-pGetPobByCrcString getPobByCrcString = (pGetPobByCrcString)0x00B497E0;
+pGetPobByCrcString getPobByCrcString = (pGetPobByCrcString)addresses::swg::portalPropertyTemplateList::getPobByCrcString;
 }
 
 namespace swg::cellProperty
@@ -46,8 +46,8 @@ namespace swg::cellProperty
 using pGetParentCell = swgptr(__thiscall*)(utinni::CellProperty* pThis);
 using pSetPortalTransitions = void(__cdecl*)(bool enabled);
 
-pGetParentCell getParentCell = (pGetParentCell)0x00B22C00;
-pSetPortalTransitions setPortalTransitions = (pSetPortalTransitions)0x00B2A990;
+pGetParentCell getParentCell = (pGetParentCell)addresses::swg::cellProperty::getParentCell;
+pSetPortalTransitions setPortalTransitions = (pSetPortalTransitions)addresses::swg::cellProperty::setPortalTransitions;
 }
 
 namespace utinni

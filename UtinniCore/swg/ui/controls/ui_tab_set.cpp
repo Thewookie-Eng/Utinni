@@ -28,7 +28,7 @@ namespace swg::uiTabSet
 {
 using pCtor = utinni::UITabSet* (__thiscall*)(utinni::UITabSet* pThis);
 
-pCtor ctor = (pCtor)0x0117AC30;
+pCtor ctor = (pCtor)addresses::swg::uiTabSet::ctor;
 }
 
 namespace utinni

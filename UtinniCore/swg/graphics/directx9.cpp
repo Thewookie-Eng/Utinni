@@ -63,7 +63,7 @@ pSetRenderTarget setRenderTarget;
 pSetDepthStencil setDepthStencil;
 pSetRenderState setRenderState;
 
-pCompileShader compileShader = (pCompileShader)0x62A4F9DB; // from s207_r.dll
+pCompileShader compileShader = (pCompileShader)addresses::directX::compileShader;
 
 enum D3DInformation
 {

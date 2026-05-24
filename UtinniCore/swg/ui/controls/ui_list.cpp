@@ -28,7 +28,7 @@ namespace swg::uiList
 {
 using pCtor = utinni::UIList* (__thiscall*)(utinni::UIList* pThis);
 
-pCtor ctor = (pCtor)0x011388F0;
+pCtor ctor = (pCtor)addresses::swg::uiList::ctor;
 }
 
 namespace utinni

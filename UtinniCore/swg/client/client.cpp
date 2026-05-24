@@ -37,13 +37,13 @@ using pWndProc = int(__stdcall*)(HWND Hwnd, UINT Message, WPARAM wParam, LPARAM 
 using pWriteCrashLog = long(__stdcall*)(swgptr unk);
 using pWriteMiniDump = bool(__cdecl*)(const char* filename, swgptr unk);
 
-pSetupInstall setupStartDataInstall = (pSetupInstall)0x00A9F970;
-pMainLoop clientMain = (pMainLoop)0x00401050;
+pSetupInstall setupStartDataInstall = (pSetupInstall)addresses::swg::client::setupStartDataInstall;
+pMainLoop clientMain = (pMainLoop)addresses::swg::client::clientMain;
 
-pWndProc wndProc = (pWndProc)0x00AA0970; // SWG's WndProc
+pWndProc wndProc = (pWndProc)addresses::swg::client::wndProc;
 
-pWriteCrashLog writeCrashLog = (pWriteCrashLog)0x00A9F640;
-pWriteMiniDump writeMiniDump = (pWriteMiniDump)0x00A8A170;
+pWriteCrashLog writeCrashLog = (pWriteCrashLog)addresses::swg::client::writeCrashLog;
+pWriteMiniDump writeMiniDump = (pWriteMiniDump)addresses::swg::client::writeMiniDump;
 }
 
 bool enableEditorMode = false;

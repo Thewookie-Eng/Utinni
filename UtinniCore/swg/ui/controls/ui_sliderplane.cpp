@@ -28,7 +28,7 @@ namespace swg::uiSliderplane
 {
 using pCtor = utinni::UISliderplane* (__thiscall*)(utinni::UISliderplane* pThis);
 
-pCtor ctor = (pCtor)0x0117D600;
+pCtor ctor = (pCtor)addresses::swg::uiSliderplane::ctor;
 }
 
 namespace utinni

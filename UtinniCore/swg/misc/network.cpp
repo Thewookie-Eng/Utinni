@@ -35,13 +35,13 @@ using pCachedNetworkIdGetObject = utinni::Object* (__thiscall*)(swgptr pThis); /
 
 using pCast = int64_t(__thiscall*)(swgptr*, int, int);
 
-pIdManagerGetObjectById idManagerGetObjectById = (pIdManagerGetObjectById)0x00B380E0;
-pIdManagerGetInstance idManagerGetInstance = (pIdManagerGetInstance)0x00B37F30;
+pIdManagerGetObjectById idManagerGetObjectById = (pIdManagerGetObjectById)addresses::swg::network::idManagerGetObjectById;
+pIdManagerGetInstance idManagerGetInstance = (pIdManagerGetInstance)addresses::swg::network::idManagerGetInstance;
 
 
-pCachedNetworkIdGetObject cachedNetworkIdGetObject = (pCachedNetworkIdGetObject)0x00B30160;
+pCachedNetworkIdGetObject cachedNetworkIdGetObject = (pCachedNetworkIdGetObject)addresses::swg::network::cachedNetworkIdGetObject;
 
-pCast cast = (pCast)0xAA4900;
+pCast cast = (pCast)addresses::swg::network::cast;
 }
 
 namespace utinni

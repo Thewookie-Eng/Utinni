@@ -30,7 +30,7 @@ namespace swg::cuiMisc
 {
 using pSwgCuiHudFactoryReloadUi = void(__cdecl*)();
 
-pSwgCuiHudFactoryReloadUi swgCuiHudFactoryReloadUi = (pSwgCuiHudFactoryReloadUi)0x00BAA7E0;
+pSwgCuiHudFactoryReloadUi swgCuiHudFactoryReloadUi = (pSwgCuiHudFactoryReloadUi)addresses::swg::cuiMisc::swgCuiHudFactoryReloadUi;
 }
 
 namespace swg::cuiLoginScreen
@@ -39,9 +39,9 @@ using pCtor = swgptr(__thiscall*)(swgptr pThis, swgptr unk);
 using pActivate = void(__thiscall*)(swgptr pThis);
 using pLogin = void(__thiscall*)(swgptr pThis);
 
-pCtor ctor = (pCtor)0x00C8CE00;
-pActivate activate = (pActivate)0x00C8D190;
-pLogin login = (pLogin)0x00C8D5D0;
+pCtor ctor = (pCtor)addresses::swg::cuiLoginScreen::ctor;
+pActivate activate = (pActivate)addresses::swg::cuiLoginScreen::activate;
+pLogin login = (pLogin)addresses::swg::cuiLoginScreen::login;
 
 }
 

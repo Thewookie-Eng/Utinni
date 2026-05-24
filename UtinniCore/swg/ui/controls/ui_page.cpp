@@ -28,7 +28,7 @@ namespace swg::uiPage
 {
 using pCtor = utinni::UIPage* (__thiscall*)(utinni::UIPage* pThis);
 
-pCtor ctor = (pCtor)0x010FD200;
+pCtor ctor = (pCtor)addresses::swg::uiPage::ctor;
 }
 
 namespace utinni

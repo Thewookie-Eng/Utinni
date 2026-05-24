@@ -28,7 +28,7 @@ namespace swg::uiCursorSet
 {
 using pCtor = utinni::UICursorSet* (__thiscall*)(utinni::UICursorSet* pThis);
 
-pCtor ctor = (pCtor)0x0116A360;
+pCtor ctor = (pCtor)addresses::swg::uiCursorSet::ctor;
 }
 
 namespace utinni

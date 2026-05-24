@@ -28,7 +28,7 @@ namespace swg::report
 {
 using pPrint = void(__cdecl*)(const char* msg);
 
-pPrint print = (pPrint)0x00A88F90;
+pPrint print = (pPrint)addresses::swg::report::print;
 }
 
 namespace utinni::report

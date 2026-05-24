@@ -29,7 +29,7 @@ namespace swg::skeleton
 {
 using pAddShaderPrimitives = void(__thiscall*)(swgptr pThis, swgptr pSkeletalAppearance);
 
-pAddShaderPrimitives addShaderPrimitives = (pAddShaderPrimitives)0x007E6C50;
+pAddShaderPrimitives addShaderPrimitives = (pAddShaderPrimitives)addresses::swg::skeleton::addShaderPrimitives;
 }
 
 namespace swg::skeletalAppearance
@@ -37,8 +37,8 @@ namespace swg::skeletalAppearance
 using pRender = void(__thiscall*)(swgptr pThis);
 using pGetDisplayLodSkeleton = swgptr(__thiscall*)(swgptr pThis);
 
-pRender render = (pRender)0x007C8B60;
-pGetDisplayLodSkeleton getDisplayLodSkeleton = (pGetDisplayLodSkeleton)0x007CA130;
+pRender render = (pRender)addresses::swg::skeletalAppearance::render;
+pGetDisplayLodSkeleton getDisplayLodSkeleton = (pGetDisplayLodSkeleton)addresses::swg::skeletalAppearance::getDisplayLodSkeleton;
 }
 
 namespace utinni

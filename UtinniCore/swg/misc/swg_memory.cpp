@@ -32,11 +32,11 @@ using pAllocateString = void* (__cdecl*)(size_t size);
 using pDeallocate = void (__cdecl*)(void* address, size_t size);
 using pDeallocateString = void (__cdecl*)(void* address, size_t size);
 
-pAllocate allocate = (pAllocate)0x00AC15C0;
-pAllocateString allocateString = (pAllocateString)0x012EA770;
+pAllocate allocate = (pAllocate)addresses::swg::memory::allocate;
+pAllocateString allocateString = (pAllocateString)addresses::swg::memory::allocateString;
 
-pDeallocate deallocate = (pDeallocate)0x00AC1640;
-pDeallocateString deallocateString = (pDeallocateString)0x012EA920;
+pDeallocate deallocate = (pDeallocate)addresses::swg::memory::deallocate;
+pDeallocateString deallocateString = (pDeallocateString)addresses::swg::memory::deallocateString;
 }
 
 namespace utinni

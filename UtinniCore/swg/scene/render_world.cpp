@@ -31,9 +31,9 @@ using pClearVisibleCells = void(__cdecl*)();
 using pAddObjectNotifications = void(__cdecl*)(utinni::Object* obj);
 using pRender = void(__cdecl*)(swgptr pCamera);
 
-pClearVisibleCells clearVisibleCells = (pClearVisibleCells)0x765C20;
-pAddObjectNotifications addObjectNotifications = (pAddObjectNotifications)0x007664F0;
-pRender render = (pRender)0x00766DE0;
+pClearVisibleCells clearVisibleCells = (pClearVisibleCells)addresses::swg::renderWorld::clearVisibleCells;
+pAddObjectNotifications addObjectNotifications = (pAddObjectNotifications)addresses::swg::renderWorld::addObjectNotifications;
+pRender render = (pRender)addresses::swg::renderWorld::render;
 }
 
 namespace utinni::renderWorld

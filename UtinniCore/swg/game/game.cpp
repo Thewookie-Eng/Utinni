@@ -51,21 +51,21 @@ using pGetConstCamera = const utinni::Camera* (__cdecl*)();
 using pIsViewFirstPerson = bool(__cdecl*)();
 using pIsHudSceneTypeSpace = bool(__cdecl*)();
 
-pInstall install = (pInstall)0x00422E80;
-pQuit quit = (pQuit)0x00423720;
-pMainLoop mainLoop = (pMainLoop)0x004237C0;
+pInstall install = (pInstall)addresses::swg::game::install;
+pQuit quit = (pQuit)addresses::swg::game::quit;
+pMainLoop mainLoop = (pMainLoop)addresses::swg::game::mainLoop;
 
-pSetupScene setupScene = (pSetupScene)0x00424220;
-pCleanupScene cleanupScene = (pCleanupScene)0x00423700;
+pSetupScene setupScene = (pSetupScene)addresses::swg::game::setupScene;
+pCleanupScene cleanupScene = (pCleanupScene)addresses::swg::game::cleanupScene;
 
-pGetPlayer getPlayer = (pGetPlayer)0x00425140;
-pGetPlayerCreatureObject getPlayerCreatureObject = (pGetPlayerCreatureObject)0x004251D0;
+pGetPlayer getPlayer = (pGetPlayer)addresses::swg::game::getPlayer;
+pGetPlayerCreatureObject getPlayerCreatureObject = (pGetPlayerCreatureObject)addresses::swg::game::getPlayerCreatureObject;
 
-pGetCamera getCamera = (pGetCamera)0x00425BB0;
-pGetConstCamera getConstCamera = (pGetConstCamera)0x00425BE0;
+pGetCamera getCamera = (pGetCamera)addresses::swg::game::getCamera;
+pGetConstCamera getConstCamera = (pGetConstCamera)addresses::swg::game::getConstCamera;
 
-pIsViewFirstPerson isViewFirstPerson = (pIsViewFirstPerson)0x00425C10;
-pIsHudSceneTypeSpace isHudSceneTypeSpace = (pIsHudSceneTypeSpace)0x00426170;
+pIsViewFirstPerson isViewFirstPerson = (pIsViewFirstPerson)addresses::swg::game::isViewFirstPerson;
+pIsHudSceneTypeSpace isHudSceneTypeSpace = (pIsHudSceneTypeSpace)addresses::swg::game::isHudSceneTypeSpace;
 }
 
 static std::vector<void(*)()> installCallbacks;

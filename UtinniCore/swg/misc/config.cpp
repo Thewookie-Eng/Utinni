@@ -34,12 +34,12 @@ using pLoadOverrideConfig = int(__cdecl*)();
 using pSetModalChat = void(__cdecl*)(bool value);
 using pGetModalChat = bool(__cdecl*)();
 
-pLoadConfigFileBuffer loadConfigFileBuffer = (pLoadConfigFileBuffer)0x00A9C6C0;
-pLoadConfigFileString loadConfigFileString = (pLoadConfigFileString)0x00A9C780;
-pLoadOverrideConfig loadOverrideConfig = (pLoadOverrideConfig)0x00401000;
+pLoadConfigFileBuffer loadConfigFileBuffer = (pLoadConfigFileBuffer)addresses::swg::config::loadConfigFileBuffer;
+pLoadConfigFileString loadConfigFileString = (pLoadConfigFileString)addresses::swg::config::loadConfigFileString;
+pLoadOverrideConfig loadOverrideConfig = (pLoadOverrideConfig)addresses::swg::config::loadOverrideConfig;
 
-pSetModalChat setModalChat = (pSetModalChat)0x00910A70;
-pGetModalChat getModalChat = (pGetModalChat)0x00910D40;
+pSetModalChat setModalChat = (pSetModalChat)addresses::swg::config::setModalChat;
+pGetModalChat getModalChat = (pGetModalChat)addresses::swg::config::getModalChat;
 
 bool loadConfigFile(byte* buffer, int bufferLength)
 {

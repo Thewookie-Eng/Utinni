@@ -31,7 +31,7 @@ namespace swg::math
 
 using pVectorNormalize = bool(__thiscall*)(Vector* pThis);
 
-pVectorNormalize vectorNormalize = (pVectorNormalize)0x00AB5C40;
+pVectorNormalize vectorNormalize = (pVectorNormalize)addresses::swg::math::vectorNormalize;
 
 Vector2d::Vector2d()
     : X(0)

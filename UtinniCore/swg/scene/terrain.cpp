@@ -31,10 +31,10 @@ using pSetTimeOfDay = int(__thiscall*)(utinni::Terrain* pThis, float, bool);
 using pGetTimeOfDay = float(__thiscall*)(utinni::Terrain* pThis);
 using pSetWeatherIndex = int(__cdecl*)(int);
 
-pReloadTerrain reloadTerrain = (pReloadTerrain)0x0051A4F0;
-pSetTimeOfDay setTimeOfDay = (pSetTimeOfDay)0x00B5CBD0;
-pGetTimeOfDay getTimeOfDay = (pGetTimeOfDay)0x00B5CBC0;
-pSetWeatherIndex setWeatherIndex = (pSetWeatherIndex)0x00845C90;
+pReloadTerrain reloadTerrain = (pReloadTerrain)addresses::swg::terrain::reloadTerrain;
+pSetTimeOfDay setTimeOfDay = (pSetTimeOfDay)addresses::swg::terrain::setTimeOfDay;
+pGetTimeOfDay getTimeOfDay = (pGetTimeOfDay)addresses::swg::terrain::getTimeOfDay;
+pSetWeatherIndex setWeatherIndex = (pSetWeatherIndex)addresses::swg::terrain::setWeatherIndex;
 }
 
 namespace utinni

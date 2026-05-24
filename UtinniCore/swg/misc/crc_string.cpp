@@ -30,8 +30,8 @@ namespace swg::crcString
 using pConstCharCrcString_ctor = utinni::ConstCharCrcString * (__thiscall*)(void* pThis, const char* value);
 using pPersistentCrcString_ctor = utinni::PersistentCrcString * (__thiscall*)(void* pThis, const char* value, bool unk);
 
-pConstCharCrcString_ctor constCharCrcString_ctor = (pConstCharCrcString_ctor)0x00AA55B0;
-pPersistentCrcString_ctor persistentCrcString_ctor = (pPersistentCrcString_ctor)0x00AA4050;
+pConstCharCrcString_ctor constCharCrcString_ctor = (pConstCharCrcString_ctor)addresses::swg::crcString::constCharCrcString_ctor;
+pPersistentCrcString_ctor persistentCrcString_ctor = (pPersistentCrcString_ctor)addresses::swg::crcString::persistentCrcString_ctor;
 
 }
 

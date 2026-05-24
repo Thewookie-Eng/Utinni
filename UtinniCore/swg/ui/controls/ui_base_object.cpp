@@ -28,7 +28,7 @@ namespace swg::uiBaseObject
 {
 using pCtor = utinni::UIBaseObject* (__thiscall*)(utinni::UIBaseObject* pThis);
 
-pCtor ctor = (pCtor)0x010F2A00;
+pCtor ctor = (pCtor)addresses::swg::uiBaseObject::ctor;
 }
 
 namespace utinni

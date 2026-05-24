@@ -33,16 +33,16 @@ using pCtor = swgptr(__thiscall*)(swgptr pThis, swgptr uiPage, DWORD unk1, DWORD
 using pEnableTextInput = void(__thiscall*)(swgptr pThis, bool value, bool setKeyboardInput, bool unfocus);
 using pWriteToTab = swgptr(__thiscall*)(swgptr pThis, const WString& str);
 
-pCtor ctor = (pCtor)0x00F364B0;
-pEnableTextInput enableTextInput = (pEnableTextInput)0x00F38500;
-pWriteToTab writeToAllTabs = (pWriteToTab)0x00F3BFD0;
-pWriteToTab writeToCurrentTab = (pWriteToTab)0x00F3C1F0;
+pCtor ctor = (pCtor)addresses::swg::cuiChatWindow::ctor;
+pEnableTextInput enableTextInput = (pEnableTextInput)addresses::swg::cuiChatWindow::enableTextInput;
+pWriteToTab writeToAllTabs = (pWriteToTab)addresses::swg::cuiChatWindow::writeToAllTabs;
+pWriteToTab writeToCurrentTab = (pWriteToTab)addresses::swg::cuiChatWindow::writeToCurrentTab;
 }
 
 namespace swg::cuiConsoleHelper
 {
 using pSendInput = bool(__thiscall*)(swgptr pThis, const swg::WString& str, swgptr unk, bool addToChatHistory);
-pSendInput sendInput = (pSendInput)0x009141D0;
+pSendInput sendInput = (pSendInput)addresses::swg::cuiConsoleHelper::sendInput;
 
 }
 

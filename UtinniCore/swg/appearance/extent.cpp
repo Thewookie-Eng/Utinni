@@ -29,8 +29,8 @@ namespace swg::baseExtent
 using pIntersect = bool(__thiscall*)(utinni::ExtentBase* pThis, swg::math::Vector* worldStart, swg::math::Vector* worldEnd, swg::math::Vector* normal, float* time);
 using pIntersect3 = int(__thiscall*)(utinni::ExtentBase* pThis, swg::math::Vector* worldStart, swg::math::Vector* worldEnd);
 
-pIntersect intersect = (pIntersect)0x0126AF70;
-pIntersect3 intersect3 = (pIntersect3)0x0126AFB0;
+pIntersect intersect = (pIntersect)addresses::swg::baseExtent::intersect;
+pIntersect3 intersect3 = (pIntersect3)addresses::swg::baseExtent::intersect3;
 }
 
 namespace swg::extent
@@ -42,7 +42,7 @@ namespace swg::boxExtent
 {
 using pIntersect = bool(__thiscall*)(utinni::BoxExtent* pThis, swg::math::Vector* worldStart, swg::math::Vector* worldEnd, swg::math::Vector* surfaceNormal, float* time);
 
-pIntersect intersect = (pIntersect)0x0125FA10;
+pIntersect intersect = (pIntersect)addresses::swg::boxExtent::intersect;
 }
 
 namespace utinni

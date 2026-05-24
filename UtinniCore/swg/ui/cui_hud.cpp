@@ -35,9 +35,9 @@ using pUpdate = void(__thiscall*)(swgptr pThis, float time);
 using pActionPerformAction = bool(__thiscall*)(swgptr pThis, DWORD val1, DWORD val2);
 using pGetTarget = utinni::Object* (__cdecl*)(utinni::Camera* pCamera, math::Vector* worldStart, math::Vector* worldEnd, utinni::Object* obj);
 
-pUpdate update = (pUpdate)0x00BD56F0;
-pActionPerformAction actionPerformAction = (pActionPerformAction)0x00EDBAA0;
-pGetTarget getTarget = (pGetTarget)0x00BD3E20;
+pUpdate update = (pUpdate)addresses::swg::cuiHud::update;
+pActionPerformAction actionPerformAction = (pActionPerformAction)addresses::swg::cuiHud::actionPerformAction;
+pGetTarget getTarget = (pGetTarget)addresses::swg::cuiHud::getTarget;
 
 }
 

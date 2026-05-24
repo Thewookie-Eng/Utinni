@@ -30,8 +30,8 @@ namespace swg::cuiRadialMenuManager
 using pUpdate = void(__cdecl*)();
 using pClear = void(__cdecl*)();
 
-pUpdate update = (pUpdate)0x009698C0;
-pClear clear = (pClear)0x0096C550;
+pUpdate update = (pUpdate)addresses::swg::cuiRadialMenuManager::update;
+pClear clear = (pClear)addresses::swg::cuiRadialMenuManager::clear;
 
 }
 

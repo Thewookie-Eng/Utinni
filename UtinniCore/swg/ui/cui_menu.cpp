@@ -30,7 +30,7 @@ namespace swg::cuiMenu
 {
 using pInfoTypesFindDefaultCursor = swgptr(__cdecl*)(utinni::ClientObject* obj);
 
-pInfoTypesFindDefaultCursor infoTypesFindDefaultCursor = (pInfoTypesFindDefaultCursor)0x00A08EE0;
+pInfoTypesFindDefaultCursor infoTypesFindDefaultCursor = (pInfoTypesFindDefaultCursor)addresses::swg::cuiMenu::infoTypesFindDefaultCursor;
 
 }
 

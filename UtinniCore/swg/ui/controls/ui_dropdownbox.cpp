@@ -28,7 +28,7 @@ namespace swg::uiDropdownbox
 {
 using pCtor = utinni::UIDropdownbox* (__thiscall*)(utinni::UIDropdownbox* pThis);
 
-pCtor ctor = (pCtor)0x0117F540;
+pCtor ctor = (pCtor)addresses::swg::uiDropdownbox::ctor;
 }
 
 namespace utinni

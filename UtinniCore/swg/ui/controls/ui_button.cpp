@@ -28,7 +28,7 @@ namespace swg::uiButton
 {
 using pCtor = utinni::UIButton* (__thiscall*)(utinni::UIButton* pThis);
 
-pCtor ctor = (pCtor)0x011149E0;
+pCtor ctor = (pCtor)addresses::swg::uiButton::ctor;
 }
 
 namespace utinni

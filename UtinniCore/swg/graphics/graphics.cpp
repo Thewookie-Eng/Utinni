@@ -54,29 +54,29 @@ using pDrawExtent = void(__cdecl*)(utinni::Extent* extent, swgptr vecArgbColor);
 
 using pScreenshot = bool(__cdecl*)(const char* filename);
 
-pInstall install = (pInstall)0x007548A0;
+pInstall install = (pInstall)addresses::swg::graphics::install;
 
-pUpdate update = (pUpdate)0x00755700; 
-pBeginScene beginScene = (pBeginScene)0x00755730; 
-pEndScene endScene = (pEndScene)0x00755740;
+pUpdate update = (pUpdate)addresses::swg::graphics::update;
+pBeginScene beginScene = (pBeginScene)addresses::swg::graphics::beginScene;
+pEndScene endScene = (pEndScene)addresses::swg::graphics::endScene;
 
-pPresentWindow presentWindow = (pPresentWindow)0x00755810;
-pPresent present = (pPresent)0x00755800; 
+pPresentWindow presentWindow = (pPresentWindow)addresses::swg::graphics::presentWindow;
+pPresent present = (pPresent)addresses::swg::graphics::present;
 
-pUseHardwareCursor useHardwareCursor = (pUseHardwareCursor)0x00755940;
-pShowMouseCursor showMouseCursor = (pShowMouseCursor)0x00755A50;
-pSetSystemMouseCursorPosition setSystemMouseCursorPosition = (pSetSystemMouseCursorPosition)0x00755AC0;
+pUseHardwareCursor useHardwareCursor = (pUseHardwareCursor)addresses::swg::graphics::useHardwareCursor;
+pShowMouseCursor showMouseCursor = (pShowMouseCursor)addresses::swg::graphics::showMouseCursor;
+pSetSystemMouseCursorPosition setSystemMouseCursorPosition = (pSetSystemMouseCursorPosition)addresses::swg::graphics::setSystemMouseCursorPosition;
 
-pResize resize = (pResize)0x00754E40;
-pFlushResources flushResources = (pFlushResources)0x00755520;
+pResize resize = (pResize)addresses::swg::graphics::resize;
+pFlushResources flushResources = (pFlushResources)addresses::swg::graphics::flushResources;
 
-pTextureListReloadTextures textureListReloadTextures = (pTextureListReloadTextures)0x00764B70;
+pTextureListReloadTextures textureListReloadTextures = (pTextureListReloadTextures)addresses::swg::graphics::textureListReloadTextures;
 
-pSetStaticShader setStaticShader = (pSetStaticShader)0x00755910;
-pSetObjectToWorldTransformAndScale setObjectToWorldTransformAndScale = (pSetObjectToWorldTransformAndScale)0x00755D30;
-pDrawExtent drawExtent = (pDrawExtent)0x00759A70;
+pSetStaticShader setStaticShader = (pSetStaticShader)addresses::swg::graphics::setStaticShader;
+pSetObjectToWorldTransformAndScale setObjectToWorldTransformAndScale = (pSetObjectToWorldTransformAndScale)addresses::swg::graphics::setObjectToWorldTransformAndScale;
+pDrawExtent drawExtent = (pDrawExtent)addresses::swg::graphics::drawExtent;
 
-pScreenshot screenshot = (pScreenshot)0x00755890;
+pScreenshot screenshot = (pScreenshot)addresses::swg::graphics::screenshot;
 }
 
 static std::string screenshotsDir = "screenshots/";

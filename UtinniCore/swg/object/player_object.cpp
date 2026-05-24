@@ -31,7 +31,7 @@ namespace swg::teleportHelper // ToDo implement proper, dirty taken from IDA
 {
 using pTeleportPlayer = int (__thiscall*)(swgptr pThis, swg::math::Transform* position);
 
-pTeleportPlayer teleportPlayer = (pTeleportPlayer)0x0062A8B0; // Controller function, do proper later
+pTeleportPlayer teleportPlayer = (pTeleportPlayer)addresses::swg::teleportHelper::teleportPlayer;
 }
 
 namespace utinni::playerObject

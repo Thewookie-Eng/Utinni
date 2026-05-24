@@ -32,10 +32,10 @@ using pSuspend = void(__cdecl*)();
 using pResume = void(__cdecl*)();
 using pSetupInstall = int(__cdecl*)(HINSTANCE hInstance, HWND hwnd, DWORD menuKey, DWORD unk);
 
-pSuspend suspend = (pSuspend)0x00420880;
-pSuspend resume = (pSuspend)0x00420890;
+pSuspend suspend = (pSuspend)addresses::swg::directInput::suspend;
+pSuspend resume = (pSuspend)addresses::swg::directInput::resume;
 
-pSetupInstall setupInstall = (pSetupInstall)0x00421490;
+pSetupInstall setupInstall = (pSetupInstall)addresses::swg::directInput::setupInstall;
 }
 
 namespace utinni

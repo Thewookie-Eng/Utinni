@@ -39,16 +39,16 @@ using pGetGameObjectTypeName = const wchar_t** (__thiscall*)(utinni::ClientObjec
 using pGetStaticObject = swgptr(__thiscall*)(swgptr pThis);
 using pGetTangibleObject = swgptr(__thiscall*)(swgptr pThis);
 
-pSetParentCell setParentCell = (pSetParentCell)0x00555410;
+pSetParentCell setParentCell = (pSetParentCell)addresses::swg::clientObject::setParentCell;
 pBeginBaselines beginBaselines = (pEndBaselines)0x00555070;
-pEndBaselines endBaselines = (pEndBaselines)0x00555070;
+pEndBaselines endBaselines = (pEndBaselines)addresses::swg::clientObject::endBaselines;
 
-pGetGameObjectType getGameObjectType = (pGetGameObjectType)0x00557360;
-pGetGameObjectTypeStringIdKey getGameObjectTypeStringIdKey = (pGetGameObjectTypeStringIdKey)0x00557370;
-pGetGameObjectTypeName getGameObjectTypeName = (pGetGameObjectTypeName)0x00557390;
+pGetGameObjectType getGameObjectType = (pGetGameObjectType)addresses::swg::clientObject::getGameObjectType;
+pGetGameObjectTypeStringIdKey getGameObjectTypeStringIdKey = (pGetGameObjectTypeStringIdKey)addresses::swg::clientObject::getGameObjectTypeStringIdKey;
+pGetGameObjectTypeName getGameObjectTypeName = (pGetGameObjectTypeName)addresses::swg::clientObject::getGameObjectTypeName;
 
-pGetStaticObject getStaticObject = (pGetStaticObject)0x00554BF0;
-pGetTangibleObject getTangibleObject = (pGetTangibleObject)0x00554C00;
+pGetStaticObject getStaticObject = (pGetStaticObject)addresses::swg::clientObject::getStaticObject;
+pGetTangibleObject getTangibleObject = (pGetTangibleObject)addresses::swg::clientObject::getTangibleObject;
 }
 
 namespace swg::buildingObject
@@ -57,10 +57,10 @@ using pCtor = utinni::Object * (__thiscall*)(DWORD pThis, DWORD sharedTemplate);
 using pAddToWorld = void(__thiscall*)(utinni::Object* pThis);
 using pRemoveFromWorld = void(__thiscall*)(utinni::Object* pThis);
 
-pCtor ctor = (pCtor)0x0070DBB0;
+pCtor ctor = (pCtor)addresses::swg::buildingObject::ctor;
 
-pAddToWorld addToWorld = (pAddToWorld)0x0070DD00;
-pRemoveFromWorld removeFromWorld = (pRemoveFromWorld)0x0070DD20;
+pAddToWorld addToWorld = (pAddToWorld)addresses::swg::buildingObject::addToWorld;
+pRemoveFromWorld removeFromWorld = (pRemoveFromWorld)addresses::swg::buildingObject::removeFromWorld;
 }
 
 namespace utinni

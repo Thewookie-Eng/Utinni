@@ -27,10 +27,10 @@
 namespace swg::audio
 {
 using pSetMasterVolume = void(__cdecl*)(float volume);
-pSetMasterVolume setMasterVolume = (pSetMasterVolume)0x00412C20;
+pSetMasterVolume setMasterVolume = (pSetMasterVolume)addresses::swg::audio::setMasterVolume;
 
 using pGetMasterVolume = float(__cdecl*)();
-pGetMasterVolume getMasterVolume = (pGetMasterVolume)0x00412C70;
+pGetMasterVolume getMasterVolume = (pGetMasterVolume)addresses::swg::audio::getMasterVolume;
 }
 
 namespace utinni::audio

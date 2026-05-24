@@ -28,7 +28,7 @@ namespace swg::uiProgressbar
 {
 using pCtor = utinni::UIProgressbar* (__thiscall*)(utinni::UIProgressbar* pThis);
 
-pCtor ctor = (pCtor)0x0117E860;
+pCtor ctor = (pCtor)addresses::swg::uiProgressbar::ctor;
 }
 
 namespace utinni

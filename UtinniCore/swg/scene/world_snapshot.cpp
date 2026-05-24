@@ -49,19 +49,19 @@ using pGetNodeByIndex = utinni::WorldSnapshotReaderWriter::Node* (__thiscall*)(u
 using pAddNode = swgptr(__thiscall*)(utinni::WorldSnapshotReaderWriter* pThis, int nodeId, int parentNodeId, const utinni::CrcString& objectFilenameCrcString, int cellId, const swg::math::Transform& transform, float radius, unsigned int pobCrc);
 using pRemoveNode = void(__thiscall*)(utinni::WorldSnapshotReaderWriter* pThis, int nodeId);
 
-pOpenFile openFile = (pOpenFile)0x00B97D90;
-pSaveFile saveFile = (pSaveFile)0x00B98120;
-pClear clear = (pClear)0x00B98290;
+pOpenFile openFile = (pOpenFile)addresses::swg::worldSnapshotReaderWriter::openFile;
+pSaveFile saveFile = (pSaveFile)addresses::swg::worldSnapshotReaderWriter::saveFile;
+pClear clear = (pClear)addresses::swg::worldSnapshotReaderWriter::clear;
 
-pGetObjectTemplateName getObjectTemplateName = (pGetObjectTemplateName)0x00B98720;
+pGetObjectTemplateName getObjectTemplateName = (pGetObjectTemplateName)addresses::swg::worldSnapshotReaderWriter::getObjectTemplateName;
 
-pNodeCount nodeCount = (pNodeCount)0x00B986A0;
-pNodeCountTotal nodeCountTotal = (pNodeCountTotal)0x00B986D0;
+pNodeCount nodeCount = (pNodeCount)addresses::swg::worldSnapshotReaderWriter::nodeCount;
+pNodeCountTotal nodeCountTotal = (pNodeCountTotal)addresses::swg::worldSnapshotReaderWriter::nodeCountTotal;
 
-pGetNodeByNetworkId getNodeByNetworkId = (pGetNodeByNetworkId)0x00B98740;
-pGetNodeByIndex getNodeByIndex = (pGetNodeByIndex)0x00B986B0;
-pAddNode addNode = (pAddNode)0x00B98410;
-pRemoveNode removeNode = (pRemoveNode)0x00B98780;
+pGetNodeByNetworkId getNodeByNetworkId = (pGetNodeByNetworkId)addresses::swg::worldSnapshotReaderWriter::getNodeByNetworkId;
+pGetNodeByIndex getNodeByIndex = (pGetNodeByIndex)addresses::swg::worldSnapshotReaderWriter::getNodeByIndex;
+pAddNode addNode = (pAddNode)addresses::swg::worldSnapshotReaderWriter::addNode;
+pRemoveNode removeNode = (pRemoveNode)addresses::swg::worldSnapshotReaderWriter::removeNode;
 
 namespace node
 {
@@ -71,11 +71,11 @@ using pSetNodeSpatialSubdivisionHandle = void(__thiscall*)(utinni::WorldSnapshot
 
 using pRemoveFromWorld = void(__thiscall*)(utinni::WorldSnapshotReaderWriter::Node* pThis);
 
-pGetNodeNetworkId getNodeNetworkId = (pGetNodeNetworkId)0x00B971D0;
-pGetNodeSpatialSubdivisionHandle getNodeSpatialSubdivisionHandle = (pGetNodeSpatialSubdivisionHandle)0x00B97390;
-pSetNodeSpatialSubdivisionHandle setNodeSpatialSubdivisionHandle = (pSetNodeSpatialSubdivisionHandle)0x00B973A0;
+pGetNodeNetworkId getNodeNetworkId = (pGetNodeNetworkId)addresses::node::getNodeNetworkId;
+pGetNodeSpatialSubdivisionHandle getNodeSpatialSubdivisionHandle = (pGetNodeSpatialSubdivisionHandle)addresses::node::getNodeSpatialSubdivisionHandle;
+pSetNodeSpatialSubdivisionHandle setNodeSpatialSubdivisionHandle = (pSetNodeSpatialSubdivisionHandle)addresses::node::setNodeSpatialSubdivisionHandle;
 
-pRemoveFromWorld removeFromWorld = (pRemoveFromWorld)0x00B97440;
+pRemoveFromWorld removeFromWorld = (pRemoveFromWorld)addresses::node::removeFromWorld;
 
 }
 }
@@ -92,15 +92,15 @@ using pAddObject = void(__cdecl*)(swgptr object, swgptr node);
 
 using pDetailLevelChanged = void(__cdecl*)();
 
-pLoad load = (pLoad)0x0059C380;
-pUnload unload = (pUnload)0x0059C1D0;
+pLoad load = (pLoad)addresses::swg::worldsnapshot::load;
+pUnload unload = (pUnload)addresses::swg::worldsnapshot::unload;
 
-pClearPreloadList clearPreloadList = (pClearPreloadList)0x00404D50;
+pClearPreloadList clearPreloadList = (pClearPreloadList)addresses::swg::worldsnapshot::clearPreloadList;
 
-pCreateObject createObject = (pCreateObject)0x0059BBA0;
-pAddObject addObject = (pAddObject)0x0059BF20;
+pCreateObject createObject = (pCreateObject)addresses::swg::worldsnapshot::createObject;
+pAddObject addObject = (pAddObject)addresses::swg::worldsnapshot::addObject;
 
-pDetailLevelChanged detailLevelChanged = (pDetailLevelChanged)0x0059DC30;
+pDetailLevelChanged detailLevelChanged = (pDetailLevelChanged)addresses::swg::worldsnapshot::detailLevelChanged;
 }
 
 namespace utinni

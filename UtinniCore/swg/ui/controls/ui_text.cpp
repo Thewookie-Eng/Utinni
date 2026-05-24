@@ -28,7 +28,7 @@ namespace swg::uiText
 {
 using pCtor = utinni::UIText* (__thiscall*)(utinni::UIText* pThis);
 
-pCtor ctor = (pCtor)0x0110ED20;
+pCtor ctor = (pCtor)addresses::swg::uiText::ctor;
 }
 
 namespace utinni

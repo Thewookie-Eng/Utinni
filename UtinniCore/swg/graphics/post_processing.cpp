@@ -29,8 +29,8 @@ namespace swg::bloom
 using pPreSceneRender = void(__cdecl*)();
 using pPostSceneRender = void(__cdecl*)();
 
-pPreSceneRender preSceneRender = (pPreSceneRender)0x0064B500;
-pPostSceneRender postSceneRender = (pPostSceneRender)0x0064B560;
+pPreSceneRender preSceneRender = (pPreSceneRender)addresses::swg::bloom::preSceneRender;
+pPostSceneRender postSceneRender = (pPostSceneRender)addresses::swg::bloom::postSceneRender;
 
 }
 

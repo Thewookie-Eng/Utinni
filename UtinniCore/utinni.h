@@ -38,6 +38,7 @@ using swgptr = uint32_t;
 #include "utility/log.h"
 #include "utility/memory.h"
 #include "utility/utility.h"
+#include "generated/addresses_generated.h"
 
 #ifdef EXPORT_UTINNI
     #define UTINNI_API __declspec(dllexport)
