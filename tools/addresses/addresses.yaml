@@ -891,7 +891,7 @@
 
 - name: cachedNetworkIdGetObject
   symbol: "swg::network::cachedNetworkIdGetObject"
-  signature: "<unknown>"
+  signature: "utinni::Object* (__thiscall*)(swgptr pThis)"
   category: misc
   original_addr: 0x00B30160
   source: "UtinniCore/swg/misc/network.cpp:42"
@@ -1215,7 +1215,7 @@
 
 - name: rotate_o2w
   symbol: "swg::object::rotate_o2w"
-  signature: "<unknown>"
+  signature: "const swg::math::Vector(__thiscall*)(utinni::Object* pThis, DWORD unk, const swg::math::Vector* o2w, const swg::math::Vector* pointInSpace)"
   category: object
   original_addr: 0x004361F0
   source: "UtinniCore/swg/object/object.cpp:157"
@@ -1494,7 +1494,7 @@
 
 - name: ctor
   symbol: "swg::groundScene::ctor"
-  signature: "<unknown>"
+  signature: "utinni::GroundScene* (__thiscall*)(void* pThis, const char* terrainFilename, const char* avatarObjectFilename, swgptr customPlayer)"
   category: scene
   original_addr: 0x00519830
   source: "UtinniCore/swg/scene/ground_scene.cpp:51"

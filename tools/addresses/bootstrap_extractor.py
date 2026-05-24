@@ -36,9 +36,9 @@ ADDR_BIND = re.compile(
     r'(0x[0-9A-Fa-f]{6,8})\s*;'
 )
 
-# using pFoo = signature;
+# using pFoo = signature;  (tolerates trailing // or /* comments)
 USING_TYPEDEF = re.compile(
-    r'^\s*using\s+(p[A-Z][A-Za-z0-9_]*)\s*=\s*(.+?)\s*;\s*$'
+    r'^\s*using\s+(p[A-Z][A-Za-z0-9_]*)\s*=\s*(.+?)\s*;'
 )
 
 # memory::nopAddress(0xADDR, N);
