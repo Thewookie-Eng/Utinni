@@ -1439,7 +1439,7 @@
   confidence: unknown
 
 - name: teleportPlayer
-  symbol: teleportPlayer
+  symbol: "swg::teleportHelper::teleportPlayer"
   signature: "int (__thiscall*)(swgptr pThis, swg::math::Transform* position)"
   category: object
   original_addr: 0x0062A8B0

@@ -63,9 +63,9 @@ ADDR_CONSTANT = re.compile(
     r'(0x[0-9A-Fa-f]{6,8})\s*;'
 )
 
-# namespace foo::bar  (with or without opening brace on same line)
+# namespace foo::bar  (tolerates trailing { and/or // or /* comments)
 NAMESPACE_OPEN = re.compile(
-    r'^\s*namespace\s+([A-Za-z_][A-Za-z0-9_:]*)\s*\{?\s*$'
+    r'^\s*namespace\s+([A-Za-z_][A-Za-z0-9_:]*)\b'
 )
 
 
