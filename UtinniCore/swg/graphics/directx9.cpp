@@ -32,6 +32,8 @@
 #include "depth_texture.h"
 #include "graphics.h"
 
+#pragma comment(lib, "d3d9.lib")
+
 namespace directX
 {
 LPDIRECT3DDEVICE9 pDirectXDevice = nullptr;
@@ -294,12 +296,32 @@ HRESULT __stdcall hkD3DXCompileShader(LPCSTR pSrcData, UINT srcDataLen, LPVOID* 
 	 return compileShader(pSrcData, srcDataLen, pDefines, pInclude, pFunctionName, "vs_3_0", Flags, ppShader, ppErrorMsgs, ppConstantTable);
 }
 
+// Create a throwaway IDirect3DDevice9 just to read its vtable pointer.
+// All devices created from the same d3d9.dll share one vtable, so the addresses
+// we read here are the same ones SWG's real device will dispatch through.
+// Replaces an older byte-pattern scan against d3d9.dll that drifts across Windows updates.
 swgptr* getVtbl()
 {
-	 swgptr* vtbl = nullptr;
-	 auto pDevice = (LPDIRECT3DDEVICE9)memory::findPattern((swgptr)GetModuleHandle("d3d9.dll"), 0x128000, "\xC7\x06\x00\x00\x00\x00\x89\x86\x00\x00\x00\x00\x89\x86", "xx????xx????xx");
-	 memcpy(&vtbl, (void*)(((swgptr)pDevice) + 2), 4);
-	 return vtbl;
+    IDirect3D9* d3d = Direct3DCreate9(D3D_SDK_VERSION);
+    if (!d3d) return nullptr;
+
+    D3DPRESENT_PARAMETERS pp = {};
+    pp.Windowed = TRUE;
+    pp.SwapEffect = D3DSWAPEFFECT_DISCARD;
+    pp.hDeviceWindow = GetDesktopWindow();
+
+    IDirect3DDevice9* dev = nullptr;
+    HRESULT hr = d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL,
+        pp.hDeviceWindow, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &pp, &dev);
+
+    swgptr* vtbl = nullptr;
+    if (SUCCEEDED(hr) && dev != nullptr)
+    {
+        vtbl = *(swgptr**)dev;
+        dev->Release();
+    }
+    d3d->Release();
+    return vtbl;
 }
 
 void detour()
