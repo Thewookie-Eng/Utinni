@@ -2,9 +2,37 @@
 
 How to find the equivalents of Utinni's 272 hardcoded SWG client addresses (catalogued in `ADDRESSES.md`) in a different SWG client build — e.g. Bellum Gero at `C:\Dev-BG\SWGEmu.exe`.
 
-## Why addresses shift between SWG builds
+## Empirical finding for Bellum Gero — read this first
+
+After spot-checking 5 addresses across diverse subsystems and address ranges, **BG turned out to be a binary patch of the original SWG client, not a recompile.** Original SWG code is intact at original addresses. BG adds:
+
+- A launcher/wrapper region that becomes the new PE entry (BG `0x0131DC7A`). This wrapper likely calls into the original SWG `clientMain` at `0x00401050`.
+- Selective patches/wrappers for functions whose behavior BG needs to change (e.g. `writeMiniDump` → server-side crash reporting, found at BG `0x00AC18C0` vs Utinni `0x00A8A170`).
+
+**Strategic implication:** the default porting assumption flips. Instead of "re-derive every address," assume **every Utinni address is correct against BG unless proven otherwise**. Hunt only the addresses BG is likely to have patched:
+
+| Likely patched | Why |
+|---|---|
+| `swg/misc/network.cpp` (4 addrs) | Private server endpoints |
+| `client.cpp`: `writeCrashLog`, `setupStartDataInstall` | Server-side crash reporting / launcher integration |
+| `swg/misc/config.cpp`: `loadBuffer`, `loadString`, `loadOverrideConfig` | Server-specific settings |
+| Anything that fails at runtime | Catches what static analysis missed |
+
+Phases 1–2 below (the general methodology) still apply for the patched-address subset and would apply to a future port to a different SWG build that *is* a recompile. The rest of the document is the methodology.
+
+### Empirical update — BG reaches in-world (2026-05-24, Win11)
+
+Full client run against `SWGEmu.exe v0.0.119.798` from injection through character-in-world succeeded with no SWG-address divergence observed across ~24 detour install sites plus 7 D3D9 device vtable hooks. The hypothesis above holds through this depth of exercise.
+
+The one crash encountered was **not** a BG concern — it was Utinni's own `getVtbl()` in `swg/graphics/directx9.cpp` using a byte-pattern scan against `d3d9.dll` that drifts across Windows updates. Returned `nullptr` on current Win11 `d3d9.dll` → `memcpy` from `0x2` → AV → SWG's `UnhandledExceptionFilter` fired `Fatal("ExceptionHandler invoked")`. Fixed in commit `dc954e5` by creating a throwaway `IDirect3DDevice9` and reading its vtable pointer directly.
+
+**Takeaway for porting work:** when investigating a BG crash, separate three categories: (1) SWG-address divergence between BG and original (the focus of this guide), (2) BG-specific data structures (also addressed here), and (3) **Utinni infrastructure broken by something OTHER than BG** — e.g. stale pattern scans against modern system DLLs, missing runtime dependencies, modern-Windows behavior changes. Category 3 is hit-and-miss in advance, but the bisect / debugger workflow used to find this one applies regardless of root cause.
+
+## Why addresses shift between SWG builds (general case)
 
 Addresses drift because the linker lays code out differently across compilations. Function bodies move; static data moves; the PE image layout changes. But **string literals, imports, and call-graph structure survive recompilation almost intact**. The porting workflow is built around finding those stable anchors.
+
+(BG turned out NOT to fit this case — it's a binary patch — but the methodology below remains the standard approach for true rebuilds.)
 
 ## Tool
 

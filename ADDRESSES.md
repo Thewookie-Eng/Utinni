@@ -4,6 +4,30 @@ Hardcoded SWG client memory addresses used by Utinni to hook into the Star Wars 
 
 **Total: 272 addresses**
 
+## Bellum Gero compatibility
+
+Working hypothesis (verified via 5-address spot-check across `Game::install`, `Camera::getViewportInt`, `Object` ctor, `UIBaseObject` ctor, and `mainLoopCount` data):
+
+**BG is a binary patch of the original SWG client, not a recompile.** The original SWG executable code is intact at original addresses. BG adds a launcher/wrapper region (causing the PE entry to shift) and selectively patches a small number of functions where its behavior diverges (e.g. crash reporting to their own server).
+
+**Default assumption:** every Utinni address is correct against BG **unless** explicitly annotated as "BG: ...". Re-derivation effort is focused on the categories BG is most likely to have patched: network, crash handling, config/launcher, anti-debug/DRM.
+
+Verified BG status (so far):
+
+| Function | Utinni hook target | Status against BG | Note |
+|---|---|---|---|
+| `Client::clientMain` | `0x00401050` | **identical** — verified | BG has an *additional* launcher wrapper at PE entry `0x0131DC7A` that calls into the original `clientMain`. Utinni's existing hook is unchanged. |
+| `WndProc` | `0x00AA0970` | **identical** — verified | |
+| `Client::writeMiniDump` | `0x00A8A170` | **patched** — BG: `0x00AC18C0` | BG-specific wrapper, probably for server-side crash reporting |
+
+So far: 1 confirmed-patched address out of 3 verified. The rest of Utinni's 272 addresses are presumed correct unless otherwise annotated below.
+
+### Milestone — BG reaches in-world (2026-05-24, Win11)
+
+The full Utinni stack runs against `SWGEmu.exe v0.0.119.798` from injection through character-in-world. This exercises ~24 SWG-address detour install sites + 7 D3D9 device vtable hooks across `client`, `clientWorld`, `creatureObject`, `CuiManager`/`Hud`/`Io`/`Menu`/`RadialMenu`/`LoginScreen`/`ChatWindow`, `debugCamera`, `Game`, `GroundScene`, `Graphics`, `ParticleEffectAppearance`, `report`, `skeletalAppearance`, `SystemMessageManager`, `treefile`, `renderWorld`, `shaderPrimitiveSorter`, `IoWin`, `postProcessing`, `config`, and the D3D9 device's `BeginScene` / `EndScene` / `Present` / `Reset` / `DrawIndexedPrimitive` / `SetRenderTarget` / `SetDepthStencil` / `D3DXCompileShader`. **None of these surfaced a BG-vs-original address divergence.** Consistent with the working hypothesis.
+
+The one crash encountered during this validation was **not** a BG patch — it was Utinni's own `getVtbl()` in `swg/graphics/directx9.cpp` using a byte-pattern scan against `d3d9.dll` that no longer matches on current Win11. Fixed in commit `dc954e5` by replacing the pattern scan with a throwaway `IDirect3DDevice9` whose vtable pointer is read directly. This crash class is **separate** from BG porting: it would have hit on vanilla SWG on the same OS. Worth flagging when investigating future "is this a BG patch?" questions.
+
 ## Categories
 
 - **fn** — function entry point (called via typedef'd function pointer)
@@ -16,11 +40,11 @@ Hardcoded SWG client memory addresses used by Utinni to hook into the Star Wars 
 ## Client / Game core
 
 ### `UtinniCore/swg/client/client.cpp`
-- `0x00401050` — :41 — fn — `Client::clientMain` (PE entrypoint)
+- `0x00401050` — :41 — fn — `Client::clientMain` (PE entrypoint in original SWG; in BG it's called from a launcher wrapper at `0x0131DC7A` but Utinni's hook target is unchanged)
 - `0x00A9F970` — :40 — fn — `Client::setupStartDataInstall`
-- `0x00AA0970` — :43 — fn — SWG's `WndProc`
+- `0x00AA0970` — :43 — fn — SWG's `WndProc` — **BG: `0x00AA0970` (identical)**
 - `0x00A9F640` — :45 — fn — `Client::writeCrashLog`
-- `0x00A8A170` — :46 — fn — `Client::writeMiniDump`
+- `0x00A8A170` — :46 — fn — `Client::writeMiniDump` — **BG: `0x00AC18C0`**
 - `0x00A9F766` — :172 — patch — `start_MidCrashLogWrite` (jmp patch site)
 - `0x00A9F76B` — :173 — ret — `return_MidCrashLogWrite`
 - `0x0193C268` — :178 — data — crash-log filename input pointer
